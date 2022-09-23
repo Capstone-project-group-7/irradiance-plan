@@ -20,9 +20,9 @@ await db.migrate();
 
 app.post('/api/weather', async function(req, res) {
 
-    //showing data based on the time stamp
+    //showing ghi_actual when inputing time stamp 5 min interval.
 
-    const weather = await db.all(`select temperature, ghi_actual from weather where period_start=?`, req.body.period_start);
+    const weather = await db.all(`select ghi_actual from weather where period_start=?`, req.body.period_start);
     
     console.log(weather);
     
@@ -55,8 +55,9 @@ app.get('/api/weather', async function(req, res) {
 
     const password = req.body.password;
 
-    const company = await db.all(`SELECT company_name from company where staff_name =? & password =?`,username&&password);
+    const company = await db.all(`SELECT company_name from company where staff_name =? and password =?`,username & password);
     console.log(company)
+    
     res.json({
         company
     })
