@@ -61,7 +61,7 @@ app.get('/api/weather', async function(req, res) {
     res.json({
         company
     })
- })
+ });
 
 
 
