@@ -1,13 +1,31 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('globalHorizontalIrradiance', () => ({
-        ghi: '',
-        results: '',
-            change() {
-            axios.post('/api/weather', {
-                ghi: this.ghi
-            }).then(ghiResults => {
-                this.results = ghiResults.data.ghi;
-            })
-        }
-    }))
-});
+    Alpine.data(`globalHorizontalIrradiance`, function() {
+      return {
+        message: 0,
+        weathers: [],
+        makeSelected(){
+          alert(this.message)
+        },
+        init(){
+          axios
+          .get('http:/api/weather')
+          .then((result) => {
+            console.log(result.data)
+            const weathers = result.data.weather
+
+            this.weathers = weathers
+         })
+         //.then(() => {
+          //console.log(cardID)
+          //return this.createCart();
+         //})
+         //.then((result) => {
+          //console.log(result);
+         // this.cartID = result.data.cart_code;
+       //})
+        },
+        
+
+    }
+    })
+})

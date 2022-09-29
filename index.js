@@ -2,13 +2,13 @@ import * as sqlite from 'sqlite';
 import sqlite3 from 'sqlite3';
 import express from 'express';
 
-//app.use(express.static('public'))
+
 
 
 const app = express();
 
 app.use(express.json());
-
+app.use(express.static('public'));
 const db = await sqlite.open({
     filename: './data_plan.db',
     driver: sqlite3.Database
@@ -18,19 +18,19 @@ console.log('db initialized');
 
 await db.migrate();
 
-app.post('/api/weather', async function(req, res) {
+//app.post('/api/weather', async function(req, res) {
 
     //showing ghi_actual when inputing time stamp 5 min interval.
 
-    const weather = await db.all(`select ghi_actual from weather where period_start=?`, req.body.period_start);
+    //const weather = await db.all(`select ghi_actual from weather where period_start=?`, req.body.period_start);
     
-    console.log(weather);
+    //console.log(weather);
     
-    res.json({
-        weather
-    })
+  //  res.json({
+       // weather
+    //})
 
-});
+//});
 
 app.get('/api/company', async function(req, res) {
     
@@ -42,10 +42,10 @@ app.get('/api/company', async function(req, res) {
 });
 app.get('/api/weather', async function(req, res) {
     
-    const weather = await db.all('select *  from weather');
+    const weathers = await db.all('select *  from weather');
     
     res.json({
-        weather 
+        weathers 
     })
 
 });

@@ -6,25 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <div class="box" x-data="globalHorizontalIrradiance">
-        <div class="input">
-        <label for="shift">Enter actual global horizontal irradiance</label>
-        <input type="text"x-model="string" id="shift">
-        </div><br><br>
-        <div class="input2">
-        <label for="shift">Global horizontal irradiance</label>
-        <input type="text"x-model="string" id="shift">
-        </div><br><br>
-        <div class="solar">
-        <button @click = "change">Enter</button>
+    
+        
+        <h1>Global horizontal irradiance</h1>
+
+        
+        <label for="weather">Choose weather information:</label>
+        
+        
+            <select name="weathers" id="weathers" x-model="message" x-on:change="makeSelected">
+                <option value="">Select</option>
+                
+                <template x-for="weather in weathers">
+                
+                    <option x-bind:value="weather.id" x-text="weather.ghi_actual"></option>
+                
+                </template>
+        
+            </select>
+
+        <br></br>
+        <div class="message">
+            Actual GHI: <span x-text="message"></span>
         </div>
+        <br></br>
+    
+        <div>
+    
+            <label for="weather">Global horizontal irradiance:</label>
+            <input type="text"x-model="message" id="weather">
+        <br><br>
+            <div class="solar">
+            <button @click = "CheckGHI">Enter</button>
+            </div>
         </div>
-        </div>
-</body>
-</html>
+    </div>
 </body>
 </html>
