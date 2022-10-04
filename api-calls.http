@@ -2,7 +2,7 @@ POST http://localhost:6001/api/weather/
 content-type: application/json
 
 {
-    "period_start": "10"
+    "ghi_actual": " "
     
 }
 
