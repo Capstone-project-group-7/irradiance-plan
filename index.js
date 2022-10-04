@@ -62,7 +62,14 @@ app.get('/api/weather', async function(req, res) {
         company
     })
  });
+ app.post('/api/company', async function(req, res){
 
+
+    const power = await db.all(`SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;`)
+    res.json({
+
+    })
+ })
 
 
 console.log('done');
