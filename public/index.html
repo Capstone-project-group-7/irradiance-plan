@@ -14,22 +14,20 @@
     <div class="box" x-data="globalHorizontalIrradiance">
     
         
-        <h1>Global horizontal irradiance</h1>
+        <h1 class="header">Solar power forecasting</h1>
 
-        
-        <label for="weather">Choose weather information:</label>
-        
-        
-            <select name="weathers" id="weathers" x-model="message" x-on:change="makeSelected">
-                <option value="">Select</option>
-                
-                <template x-for="weather in weathers">
-                
-                    <option x-bind:value="weather.id" x-text="weather.ghi_actual"></option>
-                
-                </template>
-        
-            </select>
+        <div class="f1">
+          <form action="" x-model="message">
+            <label for="first_interval">First interval:</label><br>
+            <input type="text" id="first_interval" name="first_interval" value="199"><br>
+            <label for="sec_interval">Second interval:</label><br>
+            <input type="text" id="sec_interval" name="sec_interval" value="399"><br>
+            <label for="third_interval">Third interval:</label><br>
+            <input type="text" id="third_interval" name="third_interval" value="502"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+       
 
         <br></br>
         <div class="message">
@@ -37,13 +35,23 @@
         </div>
         <br></br>
     
-        <div>
+        <div class="f2">
     
-            <label for="weather">Global horizontal irradiance:</label>
-            <input type="text"x-model="message" id="weather">
+            <label for="weather">Enter global horizontal irradiance:</label>
+            <input type="text"x-model="message" id="weather" placeholder="Enter global horizontal irradiance.">
         <br><br>
+            <label for="weather">Enter area of a panel:</label>
+            <input type="text"x-model="message" id="weather" placeholder="Enter area of a panel">
+        <br></br>
+            <label for="weather">Enter number of panels:</label>
+            <input type="text"x-model="message" id="weather" placeholder="Enter area of panels">
+        <br></br>
             <div class="solar">
-            <button @click = "makeSelected">Enter</button>
+            <button x-on:click = "makeSelected">Calculate</button>
+            </div>
+        <br></br>
+            <div class="powerOUT">
+                Power: <span x-text="powerOut"> W</span>
             </div>
         </div>
     </div>

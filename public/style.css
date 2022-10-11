@@ -1,5 +1,28 @@
 body {
-    background-color:FFE39C;
+    background-color:red;
+}
+.header {
+    font-family: Dancing Script;
+    font-size: xxx-large;
+}
+.f1 {
+    flex: 50%;
+    padding: 1px;
+    height: 50px;
+    padding-right: 30%;
+    padding-left: 8%;
+}
+.f2 {
+    flex: 100%;
+    padding: 1px;
+    height: 50px;
+}
+
+.f3 {
+    flex: 100%;
+    padding: 1px;
+    height: 50px;
+    padding-right: 30%;
 }
 .input{
     padding: 2em;
@@ -10,10 +33,7 @@ body {
             width: 20em;
             padding: 0.5em;
         }
-.input > input[type="text"] {
-            margin: 0.5em;
-            padding: 0.5em;
-        }
+
 .input2 > label {
             display: inline;
             width: 20em;
@@ -24,8 +44,38 @@ body {
             margin: 0.5em;
             padding: 0.5em;
         }
+.input>input[type="text"] {
+            padding: 0.5em;
+            background-color: transparent;
+            border-color: goldenrod;
+            font-family: Source Code Pro;
+            font-size: medium;
+            color: azure;
+            border-radius: 0.5em;
+}
 .box {
     margin: 1em;
     padding-top: 5em;
     text-align:center;
+}
+.message {
+    padding: 1em;
+    background-color: transparent;
+    margin-bottom: 1em;
+    font-family: Pacifico;
+    font-weight: bold;
+    font-size: larger;
+}
+@media(min-width:768px) {
+    .body {
+        align-items: center;
+    }
+
+    .cart {
+        width: 100%;
+    }
+
+    .sub-header {
+        display: flex;
+    }
 }
